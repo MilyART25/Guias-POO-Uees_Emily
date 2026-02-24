@@ -19,3 +19,44 @@ public class Ejercicio2 {
 }
 
  */
+
+import java.util.Scanner;
+
+public class Ejercicio2{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Solicitar datos del empleado
+        System.out.print("Ingrese el nombre del empleado: ");
+        String nombre = sc.nextLine();
+
+        System.out.print("Ingrese el sexo del empleado (H/M): ");
+        char sexo = sc.next().charAt(0);
+
+        System.out.print("Ingrese la edad del empleado: ");
+        int edad = sc.nextInt();
+
+        // Verificar si puede jubilarse
+        boolean puedeJubilarse = false;
+
+        if (sexo == 'H' || sexo == 'h') {
+            if (edad >= 60) {
+                puedeJubilarse = true;
+            }
+        } else if (sexo == 'M' || sexo == 'm') {
+            if (edad > 54) {
+                puedeJubilarse = true;
+            }
+        }
+
+        // Mostrar resultado
+        System.out.println("\nEmpleado: " + nombre);
+        if (puedeJubilarse) {
+            System.out.println("Estado: Puede jubilarse ✅");
+        } else {
+            System.out.println("Estado: Aún no puede jubilarse ❌");
+        }
+
+        sc.close();
+    }
+}
